@@ -13,7 +13,7 @@
 
     Consider a original c++ function foo, we want to use kwargs like python. 
     First, wrapping the function to a lambda, by calling adapt(), with registered keywords.
-    Then, the function can be alled via "<keyword>"_arg = <value>.
+    Then, the function can be called via "<keyword>"_arg = <value>.
 
 ```c++
     #include "ckwarg.hpp"
