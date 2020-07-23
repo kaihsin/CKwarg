@@ -11,8 +11,33 @@
 
 # example for using:
 
-    See main.cpp, use Makefile to build this simple example
+    Consider a original c++ function foo, we want to use kwargs like python. 
+    First, wrapping the function to a lambda, by calling adapt(), with registered keywords.
+    Then, the function can be alled via "<keyword>"_arg = <value>.
 
+```c++
+    #include "ckwarg.hpp"
+
+    static int foo(int a, float b, std::string const &c){
+        return (c.size()+a)/b;
+    }
+    // wrapping helping:
+    auto my_foo = adapt(foo,"ta"_arg,"tb"_arg,"tc"_arg);
+
+
+    int main(){
+
+        // using:
+        std::cout <<  my_foo(
+                        "tc"_arg = "hello world",
+                        "tb"_arg = 0.5,
+                        "ta"_arg = 10
+                    );
+
+        return 0;
+    }
+```
+    Full example, see main.cpp, use Makefile to build this simple example
 
 # Developer:
     
